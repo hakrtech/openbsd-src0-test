@@ -1699,6 +1699,7 @@
 ./usr/share/man/cat8/cryptoadm.0
 ./usr/share/man/cat8/cryptoinit.0
 ./usr/share/man/cat8/cvsbug.0
+./usr/share/man/cat8/daily.0
 ./usr/share/man/cat8/dev_mkdb.0
 ./usr/share/man/cat8/dhclient-script.0
 ./usr/share/man/cat8/dhclient.0
@@ -1734,6 +1735,7 @@
 ./usr/share/man/cat8/groupdel.0
 ./usr/share/man/cat8/groupinfo.0
 ./usr/share/man/cat8/groupmod.0
+./usr/share/man/cat8/growfs.0
 ./usr/share/man/cat8/halt.0
 ./usr/share/man/cat8/hp300
 ./usr/share/man/cat8/hp300/MAKEDEV.0
@@ -1835,6 +1837,7 @@
 ./usr/share/man/cat8/modload.0
 ./usr/share/man/cat8/modstat.0
 ./usr/share/man/cat8/modunload.0
+./usr/share/man/cat8/monthly.0
 ./usr/share/man/cat8/mopd.0
 ./usr/share/man/cat8/mount.0
 ./usr/share/man/cat8/mount_ados.0
@@ -2037,6 +2040,7 @@
 ./usr/share/man/cat8/vmstat.0
 ./usr/share/man/cat8/vnconfig.0
 ./usr/share/man/cat8/vpn.0
+./usr/share/man/cat8/weekly.0
 ./usr/share/man/cat8/wicontrol.0
 ./usr/share/man/cat8/yp.0
 ./usr/share/man/cat8/ypbind.0
