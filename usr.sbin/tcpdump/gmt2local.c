@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1993, 1994, 1995, 1996
+ * Copyright (c) 1997
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -17,38 +17,56 @@
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @(#) $Header: /cvs/src/usr.sbin/tcpdump/lbl/Attic/os-solaris2.h,v 1.1 1996/12/12 16:08:23 bitblt Exp $ (LBL)
  */
 
-/* Prototypes missing in SunOS 5 */
-int	daemon(int, int);
-int	dn_expand(u_char *, u_char *, u_char *, u_char *, int);
-int	dn_skipname(u_char *, u_char *);
-int	flock(int, int);
-int	getdtablesize(void);
-int	gethostname(char *, int);
-int	getpagesize(void);
-char	*getusershell(void);
-char	*getwd(char *);
-int	iruserok(u_int, int, char *, char *);
-#ifdef __STDC__
-struct	utmp;
-void	login(struct utmp *);
+#ifndef lint
+static const char rcsid[] =
+    "@(#) $Header: /cvs/src/usr.sbin/tcpdump/gmt2local.c,v 1.1 1999/07/28 20:41:35 jakob Exp $ (LBL)";
 #endif
-int	logout(const char *);
-int	res_query(char *, int, int, u_char *, int);
-int	setenv(const char *, const char *, int);
-#if defined(_STDIO_H) && defined(HAVE_SETLINEBUF)
-int	setlinebuf(FILE *);
+
+#include <sys/types.h>
+#include <sys/time.h>
+
+#include <stdio.h>
+#ifdef TIME_WITH_SYS_TIME
+#include <time.h>
 #endif
-int	sigblock(int);
-int	sigsetmask(int);
-char    *strerror(int);
-int	snprintf(char *, size_t, const char *, ...);
-int	strcasecmp(const char *, const char *);
-void	unsetenv(const char *);
-#ifdef __STDC__
-struct	timeval;
+
+#include "gnuc.h"
+#ifdef HAVE_OS_PROTO_H
+#include "os-proto.h"
 #endif
-int	utimes(const char *, struct timeval *);
+
+#include "gmt2local.h"
+
+/*
+ * Returns the difference between gmt and local time in seconds.
+ * Use gmtime() and localtime() to keep things simple.
+ */
+int32_t
+gmt2local(time_t t)
+{
+	register int dt, dir;
+	register struct tm *gmt, *loc;
+	struct tm sgmt;
+
+	if (t == 0)
+		t = time(NULL);
+	gmt = &sgmt;
+	*gmt = *gmtime(&t);
+	loc = localtime(&t);
+	dt = (loc->tm_hour - gmt->tm_hour) * 60 * 60 +
+	    (loc->tm_min - gmt->tm_min) * 60;
+
+	/*
+	 * If the year or julian day is different, we span 00:00 GMT
+	 * and must add or subtract a day. Check the year first to
+	 * avoid problems when the julian day wraps.
+	 */
+	dir = loc->tm_year - gmt->tm_year;
+	if (dir == 0)
+		dir = loc->tm_yday - gmt->tm_yday;
+	dt += dir * 24 * 60 * 60;
+
+	return (dt);
+}
