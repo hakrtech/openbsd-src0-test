@@ -2,7 +2,7 @@
  * THIS FILE AUTOMATICALLY GENERATED.  DO NOT EDIT.
  *
  * generated from:
- *		OpenBSD: pcidevs,v 1.653 2003/07/20 21:37:10 matthieu Exp 
+ *		OpenBSD: pcidevs,v 1.655 2003/07/22 18:53:31 jason Exp 
  */
 /*	$NetBSD: pcidevs,v 1.30 1997/06/24 06:20:24 thorpej Exp $ 	*/
 
@@ -573,6 +573,7 @@
 #define	PCI_VENDOR_NETSEC	0x1660		/* NetSec */
 #define	PCI_VENDOR_ATHEROS	0x168c		/* Atheros */
 #define	PCI_VENDOR_GLOBALSUN	0x16ab		/* Global Sun */
+#define	PCI_VENDOR_SAFENET	0x16ae		/* SafeNet */
 #define	PCI_VENDOR_USR2	0x16ec		/* US Robotics */
 #define	PCI_VENDOR_NETOCTAVE	0x170b		/* Netoctave */
 #define	PCI_VENDOR_ALTIMA	0x173b		/* Altima */
@@ -2228,6 +2229,9 @@
 #define	PCI_PRODUCT_S3_PROSAVAGE_DDR	0x8d04		/* ProSavage DDR */
 #define	PCI_PRODUCT_S3_SONICVIBES	0xca00		/* SonicVibes */
 
+/* SafeNet, Inc. products */
+#define	PCI_PRODUCT_SAFENET_SAFEXCEL	0x1141		/* SafeXcel */
+
 /* Schneider & Koch (SysKonnect) */
 #define	PCI_PRODUCT_SCHNEIDERKOCH_GE	0x4300		/* 984x GE */
 #define	PCI_PRODUCT_SCHNEIDERKOCH_SK9821v2	0x4320		/* SK-9821 v2.0 */
@@ -2306,7 +2310,7 @@
 #define	PCI_PRODUCT_SIS_6205	0x6205		/* 6205 */
 #define	PCI_PRODUCT_SIS_6300	0x6300		/* 6300 */
 #define	PCI_PRODUCT_SIS_530_VGA	0x6306		/* 530 VGA */
-#define	PCI_PRODUCT_SIS_650	0x6325		/* 650 VGA */
+#define	PCI_PRODUCT_SIS_650_VGA	0x6325		/* 650 VGA */
 #define	PCI_PRODUCT_SIS_6326	0x6326		/* 6326 AGP Video */
 #define	PCI_PRODUCT_SIS_5597_USB	0x7001		/* 5597/5598 USB */
 #define	PCI_PRODUCT_SIS_7002	0x7002		/* 7002 USB */
