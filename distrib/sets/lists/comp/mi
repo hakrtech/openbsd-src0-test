@@ -907,7 +907,6 @@
 ./usr/include/glob.h
 ./usr/include/grp.h
 ./usr/include/histedit.h
-./usr/include/i386/kvm86.h
 ./usr/include/ifaddrs.h
 ./usr/include/inttypes.h
 ./usr/include/iso646.h
@@ -1807,6 +1806,7 @@
 ./usr/share/man/cat2/accept.0
 ./usr/share/man/cat2/access.0
 ./usr/share/man/cat2/acct.0
+./usr/share/man/cat2/adjfreq.0
 ./usr/share/man/cat2/adjtime.0
 ./usr/share/man/cat2/alpha/dense_base.0
 ./usr/share/man/cat2/alpha/inb.0
